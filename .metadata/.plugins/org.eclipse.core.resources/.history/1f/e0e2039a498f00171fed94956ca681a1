@@ -1,0 +1,46 @@
+package samayyu.assigmnent;
+
+import java.util.HashMap;
+
+public class StockQuoteKey {
+	String ticker,key;
+
+	public String getTicker() {
+		return ticker;
+	}
+
+	public void setTicker(String ticker) {
+		this.ticker = ticker;
+	}
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+	
+	@Override
+	public int hashCode() {
+		return (ticker+key).hashCode();
+	}
+	@Override
+	public boolean equals(Object object) {
+		if(this == object) {
+			return true;
+		}
+		if(object == null) {
+			return false;
+		}
+		if(!(object instanceof StockQuoteKey)) {
+			return false;
+		}
+		StockQuoteKey sqk = (StockQuoteKey) object;
+		if(ticker.equals(sqk.ticker) && key.equals(sqk.key)) {
+			return true;
+		}
+		return false;
+	}
+
+}

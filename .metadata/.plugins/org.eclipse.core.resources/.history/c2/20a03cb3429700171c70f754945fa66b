@@ -1,0 +1,26 @@
+package threadtest;
+
+public class MovingAverage {
+	private String ticker;
+	private int date;
+	private double average;
+	public String getTicker() {
+		return ticker;
+	}
+	public void setTicker(String ticker) {
+		this.ticker = ticker;
+	}
+	public int getDate() {
+		return date;
+	}
+	public void setDate(int nodays) {
+		this.date = nodays;
+	}
+	public double getAverage() {
+		return average;
+	}
+	public void setAverage(double average) {
+		this.average = average;
+	}
+
+}

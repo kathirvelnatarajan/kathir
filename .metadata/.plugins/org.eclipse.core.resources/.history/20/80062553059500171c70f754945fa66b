@@ -1,0 +1,26 @@
+package io.kathir.topiccontroller.topic;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+
+@Component
+public class DatabaseManager {
+    private final JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public DatabaseManager(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+    public List<MovingAverage> fetchAverage(){
+    	/*Object[] args = new Object[]{stockTicker,date,d};*/
+    	return jdbcTemplate.query("SELECT * from stock_mov_average", new DatabaseMovingAverageProcessor());
+    }
+    public static void main(String[] args) {
+    	DatabaseManager dm = new DatabaseManager(null);
+    	dm.fetchAverage();
+    }
+   
+}

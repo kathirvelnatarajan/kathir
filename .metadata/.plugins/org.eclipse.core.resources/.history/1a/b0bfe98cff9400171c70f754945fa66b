@@ -1,0 +1,23 @@
+package io.kathir.topiccontroller.topic;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.util.HashMap;
+import java.util.Map;
+
+
+
+public class DatabaseRow {
+	public Map mapRow(ResultSet rs ,int rowNum) throws Exception{
+		ResultSetMetaData rsd = rs.getMetaData();
+		int coloumnCount = rsd.getColumnCount();
+		Map<String, String> row = new HashMap<String, String>();
+		for(int i = 0; i<coloumnCount;i++) {
+			String coloumnName = rsd.getColumnName(i);
+			String coloumnValue = rs.getString(coloumnName);
+			row.put(coloumnName, coloumnValue);
+		}
+		return row;
+	}
+
+}

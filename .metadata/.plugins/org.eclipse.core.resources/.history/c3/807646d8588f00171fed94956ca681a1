@@ -1,0 +1,16 @@
+package samayyu.assigmnent;
+
+public class ThreadRunner implements Runnable {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void run() {
+		// TODO Auto-generated method stub
+		ThreadTest.instance().add(String.valueOf(Math.random()));
+		ThreadTest.instance().search("x");
+		}
+
+}

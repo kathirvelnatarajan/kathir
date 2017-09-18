@@ -1,0 +1,29 @@
+package io.kathir.topiccontroller.topic;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class DatabaseRowMapper implements RowMapper{
+	
+public Map mapRow(ResultSet rs, int rowNum) throws SQLException {
+		// TODO Auto-generated method stub
+		ResultSetMetaData rsd = rs.getMetaData();
+		int coloumnCount = rsd.getColumnCount();
+		Map resultMap = new HashMap();
+		for(int i =0;i<coloumnCount;i++) {
+			String coloumnName = rsd.getColumnName(i);
+			String coloumnValue = rs.getString(coloumnName);
+			resultMap.put(coloumnName, coloumnValue);
+		}
+		return resultMap;
+	}
+
+	
+	
+
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AppTest" project="assigmnent" tests="7" started="7" failures="0" errors="0" ignored="0">
+  <testsuite name="samayyu.assigmnent.AppTest" time="0.0">
+    <testcase name="testAppString" classname="samayyu.assigmnent.AppTest" time="0.0"/>
+    <testcase name="testCountWords" classname="samayyu.assigmnent.AppTest" time="0.0"/>
+    <testcase name="testSameChar" classname="samayyu.assigmnent.AppTest" time="0.0"/>
+    <testcase name="testApp" classname="samayyu.assigmnent.AppTest" time="0.0"/>
+    <testcase name="testBalance" classname="samayyu.assigmnent.AppTest" time="0.0"/>
+    <testcase name="testCountWords2" classname="samayyu.assigmnent.AppTest" time="0.0"/>
+    <testcase name="testStringArray" classname="samayyu.assigmnent.AppTest" time="0.0"/>
+  </testsuite>
+</testrun>

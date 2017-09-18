@@ -1,0 +1,43 @@
+package samayyu.assigmnent;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Processor {
+	public static List<StockQuote> readFile(File f) throws Exception{
+		List<StockQuote> list = new ArrayList<StockQuote>();
+	BufferedReader br = new BufferedReader(new FileReader(f));
+	String line;
+	br.readLine();
+	while((line=br.readLine()) != null) {
+			System.out.println(line);
+			StockQuote sq = new StockQuote();
+			sq = parse(line);
+			list.add(sq);
+			}
+	br.close();
+		return list;
+	}
+	public static StockQuote parse(String line) {
+		String[] coloumn = line.split(",");
+		StockQuote sq = new StockQuote();
+		sq.setDate(coloumn[0]);
+		sq.setPrice(Double.parseDouble(coloumn[1]));
+		sq.setStockTicker("AAPL");
+		return sq;
+	}
+	public static void main(String[] args) {
+		File f = new File("C:\\Users\\kathi\\Desktop\\AAPL.csv");
+		try {
+			Processor.readFile(f);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

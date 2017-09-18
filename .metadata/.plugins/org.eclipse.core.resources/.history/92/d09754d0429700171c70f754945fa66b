@@ -1,0 +1,52 @@
+package threadtest;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.util.LinkedList;
+import java.util.List;
+
+
+public class StockData {
+
+
+public synchronized List getStockQuotes(String ticker) throws Exception {
+	List list = new LinkedList();
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection conn =DriverManager.getConnection("jdbc:mysql://Salesdb3Admin.db.3009048.hostedresource.com/Salesdb3Admin\",\"Salesdb3Admin\",\"Welcome@77");
+	PreparedStatement st= conn.prepareStatement("Select * from stock_quotes where stock_ticker=?");
+	ResultSet rs	= st.executeQuery();
+	st.setString(1,ticker);
+	ResultSetMetaData rsmd = rs.getMetaData();
+	while(rs.next()){
+	String stock = rs.getString(2);
+	String date = rs.getString(3);
+	Double price = rs.getDouble(4);
+	StockQuote quote = new StockQuote();
+	quote.setStockTicker(stock);
+	quote.setQuoteDate(date);
+	quote.setPrice(price);
+		list.add(quote);
+	 }
+	return list;
+}
+
+public synchronized void setStockQuotes(List quote, String ticker) throws Exception{
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection conn =DriverManager.getConnection("jdbc:mysql://Salesdb3Admin.db.3009048.hostedresource.com/Salesdb3Admin\",\"Salesdb3Admin\",\"Welcome@77");
+	java.sql.PreparedStatement st=conn.prepareStatement("insert into stock_quotes "
+			+ "(stock_ticker,quote_date, price) values(?,?,?)");
+	for(int i=0; i<quote.size(); i++){
+		StockQuote sq= (StockQuote) quote.get(i);
+		st.setString(1, ticker);
+		st.setString(2, sq.getQuoteDate());
+		st.setDouble(3, sq.getPrice());
+	st.executeBatch();
+}
+}
+
+
+
+}

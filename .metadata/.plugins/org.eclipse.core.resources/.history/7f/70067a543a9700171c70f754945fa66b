@@ -1,0 +1,46 @@
+package threadtest;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.util.LinkedList;
+import java.util.List;
+
+public class StockData {
+
+
+public synchronized List getStockQuotes(String ticker) throws Exception {
+	List list = new LinkedList();
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection conn =DriverManager.getConnection("jdbc:mysql://Salesdb3Admin.db.3009048.hostedresource.com/Salesdb3Admin\",\"Salesdb3Admin\",\"Welcome@77");
+	PreparedStatement st= conn.prepareStatement("Select * from stock_quotes where stock_ticker=?");
+	ResultSet rs	= st.executeQuery();
+	ResultSetMetaData rsmd = rs.getMetaData();
+	while(rs.next()){
+	String stock = rs.getString(2);
+	String date = rs.getString(3);
+	Double price = rs.getDouble(4);
+	
+	StockQuote quote = new StockQuote();
+	quote.setQuoteDate(date);
+quote.setStockTicker(stock);
+	quote.setPrice(price);
+		list.add(quote);
+	 
+	}
+	return list;
+
+
+}
+
+public synchronized void setStockQuotes(String ticker) {
+	
+}
+
+
+
+
+
+}

@@ -1,0 +1,138 @@
+package samayyu.assigmnent;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+	public int add(int a, int b) {
+		return a+b;
+	}
+	public String word(String s) {
+		
+		return s;
+	}
+	public static int countWords(String words) {
+	
+	char[] c = words.toCharArray();
+	int count = 1;
+	for(int i =0 ; i<c.length;i++) {
+	if(c[i] == ' ') {
+		if(i<c.length-1 && c[i+1]>= 'a' && c[i+1] <= 'z') {
+		 count++;
+		}
+	}}
+	
+		return count;
+	}
+	
+	public static String[] stringArray(String s) {
+		String[] result = s.split(" ");
+		return result;
+	}
+	public static int sameChar(char[] x , char[] y, int m,int n) {
+		if(m == 0 || n == 0) {
+			return 0;
+		}
+		if(x[m-1] == y[n-1]) {
+			return 1+sameChar(x,y,m-1,n-1);
+		}
+		else{
+			return max(sameChar(x, y, m, n-1),sameChar(x, y, m-1, n));
+		}
+	}
+	public static int max(int a,int b) {
+		return(a>b)? a:b ;
+	}
+	public static boolean isValid(char check , char para) {
+		if(check =='{' && para =='}') {
+			return true;
+		}
+		else if(check =='(' && para ==')') {
+			return true;
+		}
+		else if(check =='[' && para ==']') {
+			return true;
+		}
+		return false;
+	}
+	public static boolean balanceCheck(String s) {
+		Stack<Character> character = new Stack<Character>();
+		for(int i = 0; i<s.length();i++) {
+			if(s.charAt(i) == '{' || s.charAt(i)=='(' || s.charAt(i) == '[') {
+				character.push(s.charAt(i));
+			}
+			if(s.charAt(i) == '}' || s.charAt(i) == ')' || s.charAt(i) == ']') {
+				if(!character.isEmpty() ) {
+					if(isValid(character.peek(),s.charAt(i))) {
+						character.pop();
+					}else
+						return false;
+				}else
+				return false;
+			}
+		}
+		if(character.isEmpty()) {
+			return true;
+		}else
+			return false;
+	}
+	
+	
+	public static List<String> add(String[] words){
+		 List<String> linkedList = new LinkedList<String>();
+		 long start = System.currentTimeMillis();
+		for(int i =0; i<words.length; i++) {
+			linkedList.add(i,words[i]);
+		}
+		System.out.println("time :"+(System.currentTimeMillis()-start));
+		return linkedList;
+	}
+	
+    public static void main( String[] args )
+    {
+       App a = new App();
+     /* String s1 = "axuyt";
+      String s2 = "tyuxa";
+      char[] x = s1.toCharArray();
+      char[] y = s2.toCharArray();
+      int m = x.length;
+      int n = y.length;
+      int count = App.sameChar(x, y, m, n);
+      System.out.println(count);*/
+       String[] words = {"ArrayList Questions from Java Interviews\r\n" + 
+       		"So without wasting any more time, let's start with the questions. The questions are mainly divided in to two category, one is fact based question, which checks how much you know about ArrayList and other is task based question, which evaluate how good you are with doing things with ArrayList. In my list, I have combined both of them.\r\n" + 
+       		"\r\n" + 
+       		"\r\n" + 
+       		"\r\n" + 
+       		"\r\n" + 
+       		"1. How to remove duplicates from ArrayList in Java?  (Answer)\r\n" + 
+       		"This is as task based question. Since List interface allows duplicates, ArrayList also allowed it but if you remember Set interface doesn't allow duplicates, which means you can remove duplicates from ArrayList by converting it into a Set and then back to ArrayList, but how will you keep the order intact? See answer for more detail explanation.\r\n" + 
+       		"\r\n" + 
+       		"\r\n" + 
+       		"2. How to reverse ArrayList in Java? (Answer)\r\n" + 
+       		"You can can reverse ArrayList by using Collections.reverse() method.  There are couple of more ways e.g. iterating through list and copying element into new list. See answer for more ways to do this task.\r\n" + 
+       		"\r\n" + 
+       		"\r\n" + 
+       		"3. Difference between an array and ArrayList in Java? (Answer)\r\n" + 
+       		"This is a fresher level interview question, main difference between array and ArrayList is that former is static and later is dynamic. You cannot change the size of array once created, but ArrayList can grow and increase its size automatically.\r\n" + 
+       		"\r\n" + 
+       		"\r\n" + 
+       		"4. How to synchronize ArrayList in Java? (Answer)\r\n" + 
+       		"This is a very good task based question. If you remember, ArrayList is not thread-safe, its not synchronized either, which means you cannot share it between multiple threads if one of them modifies it. Don't worry, you can synchronize ArrayList by using Collections.synchronizedList() method. Check answer to understand steps.\r\n" + 
+       		"\r\n" + 
+       		"\r\n" + 
+       		"5. When to use ArrayList and LinkedList in Java? (Answer)\r\n" + 
+       		"This is by far the most popular ArrayList based question from Java Interviews and you can answer it very easily if you are familiar with two key data structure, array and linked list. Since array provides constant time search operation, its better to use ArrayList if search outnumber add and remove operation, otherwise use LinkedList which provides constant time add and remove operation. See answer for more detailed discussion on this topic.\r\n" + 
+       		"\r\n" + 
+       		"Read more: http://www.java67.com/2015/06/20-java-arraylist-interview-questions.html#ixzz4rRNmxCzl"};
+     System.out.println( App.add(words));
+      
+       
+    }
+}

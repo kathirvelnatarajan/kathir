@@ -1,0 +1,18 @@
+package threadtest;
+
+import java.util.List;
+import java.util.Map;
+
+public class StockData {
+private Map stockQuotes;
+
+public List getStockQuotes(String ticker) {
+	return (List) stockQuotes;
+}
+
+public void setStockQuotes(String ticker) {
+	this.stockQuotes = stockQuotes;
+}
+
+
+}

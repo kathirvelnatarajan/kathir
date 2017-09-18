@@ -1,0 +1,44 @@
+package threadtest;
+
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class Processor implements Runnable {
+
+	public static void main(String[] args) {
+		ExecutorService executor = Executors.newFixedThreadPool(5);
+		executor.submit(new Processor());
+
+	}
+
+	public void run() {
+		StockQuote sq = (StockQuote)Thread.currentThread();
+		MovingAverage ma = (MovingAverage)Thread.currentThread();
+		try {
+			List<StockQuote> stockQuoteList = StockData.getStockQuotes("AAPL.N");
+			List<MovingAverage> movingAvgList = StockData.getMovingAverage("AAPL.N"); 
+			for(int i=0;i<stockQuoteList.size();i++) {
+				System.out.println(stockQuoteList.get(i));
+			}
+			boolean stockQuote = StockData.setStockQuotes(stockQuoteList, "AAPL.N");
+			boolean movAvg = StockData.setMovingAverage(movingAvgList);
+			if(stockQuote == true) {
+				System.out.println("stockquote inserted");
+			}else {
+				System.out.println("sq insertion failed");
+			}
+			if(movAvg == true) {
+				System.out.println("ma inserted");
+			}else {
+				System.out.println("ma insertion failed");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}

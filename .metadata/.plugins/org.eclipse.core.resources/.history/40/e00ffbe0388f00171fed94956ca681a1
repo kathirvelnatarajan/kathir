@@ -1,0 +1,26 @@
+package samayyu.assigmnent;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Processors {
+	public static List<StockQuote> readFile(File f) throws Exception{
+		List<StockQuote> list = new ArrayList<StockQuote>();
+	BufferedReader br = new BufferedReader(new FileReader(f));
+	String line;
+	while((line=br.readLine()) != null) {
+			System.out.println(line);
+	}
+	br.close();
+		return l;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

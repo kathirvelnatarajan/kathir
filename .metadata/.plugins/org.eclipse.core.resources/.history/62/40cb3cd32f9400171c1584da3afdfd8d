@@ -1,0 +1,19 @@
+package assignment2;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class SpringRewrite {
+	@RequestMapping("/html")
+	public String firstPage() {
+		return "HELLO";
+	}
+	@RequestMapping("/showquotes")
+	public List<StockQuote> getQuotes(@RequestParam("ticker") String symbol) throws Exception{
+		return DataAccessManager.getAllStockQuotes(symbol);
+	}
+
+}

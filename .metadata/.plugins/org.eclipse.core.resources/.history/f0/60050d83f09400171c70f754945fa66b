@@ -1,0 +1,5 @@
+package io.kathir.topiccontroller.topic;
+
+public class MovingAverageProcessor {
+
+}

@@ -1,0 +1,68 @@
+package practice;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class MapsDemo {
+	public Map<String,String> mystry(Map<String,Integer> map1, Map<Integer,String> map2){
+		Map<String,String> result = new TreeMap<String,String>();
+		for(String s:map1.keySet()) {
+			if(map2.containsKey(map1.get(s))){
+				result.put(s, map2.get(map1.get(s)));
+			}
+		}
+		return result;
+	}
+	public List<Integer> alternate(List<Integer> l1, List<Integer> l2){
+		 List<Integer> result = new LinkedList<Integer>();
+		    for(int i =0;i<l1.size();i++) {
+		    	for(int j= 0; j<l2.size(); j++) {
+		    		for(int k=0; k<l2.size(); k++) {
+		    		 result.add(k, l1.get(i));
+		    		 result.add(k+1, l2.get(j));
+		    	}
+		    }
+		    }
+		    
+		    return result;
+		    
+		    
+		}
+
+
+		public static void main(String[] args) {
+
+			/*Map<String,Integer> map1 = new HashMap<String, Integer>();
+			map1.put("bar", 1);
+			map1.put("baz", 2);
+			map1.put("foo", 3);
+			map1.put("mumble", 4);
+			Map<Integer,String> map2 = new HashMap< Integer,String>();
+			map2.put(1, "earth");
+			map2.put(2, "wind");
+			map2.put(3, "air");
+			map2.put(4, "fire");*/
+			MapsDemo r = new MapsDemo();
+		/*	r.mystry(map1, map2);*/
+			List<Integer> l1 = new LinkedList<Integer>();
+			l1.add(1);
+			l1.add(2);
+			l1.add(3);
+			l1.add(4);
+			l1.add(5);
+			List<Integer> l2 = new LinkedList<Integer>();
+			l2.add(6);
+			l2.add(7);
+			l2.add(8);
+			l2.add(9);
+			l2.add(10);
+			l2.add(11);
+			l2.add(12);
+			System.out.println(r.alternate(l1, l2));
+		}
+
+	}
+

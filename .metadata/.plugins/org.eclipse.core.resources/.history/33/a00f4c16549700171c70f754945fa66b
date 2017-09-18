@@ -1,0 +1,29 @@
+package memorytest;
+
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class WithTree {
+	
+
+	public static void main(String[] args) {
+			
+		Set<Integer> treeSet = new TreeSet<Integer>();
+		
+		for(int i=0;i<1000000;i++) {
+			treeSet.add(i);
+		}
+		Iterator<Integer> i = treeSet.iterator();
+		while(i.hasNext()) {
+			int n = i.next();
+			if(n == 999999) {
+				System.out.println("number find is " +n);
+			}else {
+				System.out.println("number not found");
+			}
+		}
+
+	}
+
+}

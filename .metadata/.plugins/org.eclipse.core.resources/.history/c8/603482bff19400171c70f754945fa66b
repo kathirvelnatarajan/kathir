@@ -1,0 +1,13 @@
+package io.kathir.topiccontroller.topic;
+
+import java.util.List;
+
+import org.yaml.snakeyaml.tokens.DirectiveToken;
+
+public class MovingAverageProcessor {
+
+	public List<MovingAverage> setMovingAverage(){
+		Class.forName();
+		Connection cn = 
+	}
+}

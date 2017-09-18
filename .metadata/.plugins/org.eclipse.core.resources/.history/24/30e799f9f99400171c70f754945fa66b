@@ -1,0 +1,13 @@
+package io.kathir.topiccontroller.topic;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+public class JdbcTemplate {
+    private final JdbcTemplateAutoConfiguration jdbcTemplate;
+
+    @Autowired
+    public MyBean(DatabaseManager jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+}

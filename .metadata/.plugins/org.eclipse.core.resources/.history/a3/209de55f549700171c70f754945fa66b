@@ -1,0 +1,34 @@
+package memorytest;
+
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class WithTree {
+	
+public int toFind(Set treeSet, int k){
+	int n = 0;
+	Iterator<Integer> i = treeSet.iterator();
+	while(i.hasNext()) {
+		 n = i.next();
+		if(n == k) {
+		n = k;
+		}
+		
+	}
+return n;
+}
+	public static void main(String[] args) {
+			
+		Set<Integer> treeSet = new TreeSet<Integer>();
+		
+		for(int i=0;i<10000000;i++) {
+			treeSet.add(i);
+		}
+		WithTree w =new WithTree();
+		int k = 999999;
+		System.out.println(w.toFind(treeSet,k));
+		
+	}
+
+}

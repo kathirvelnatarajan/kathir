@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AppTest (1)" project="Test" tests="5" started="5" failures="0" errors="0" ignored="0">
+  <testsuite name="testall.Test.AppTest" time="0.0">
+    <testcase name="testLos3" classname="testall.Test.AppTest" time="0.0"/>
+    <testcase name="testLosOf2" classname="testall.Test.AppTest" time="0.0"/>
+    <testcase name="testBalance" classname="testall.Test.AppTest" time="0.0"/>
+    <testcase name="testBalance1" classname="testall.Test.AppTest" time="0.0"/>
+    <testcase name="testApp" classname="testall.Test.AppTest" time="0.0"/>
+  </testsuite>
+</testrun>

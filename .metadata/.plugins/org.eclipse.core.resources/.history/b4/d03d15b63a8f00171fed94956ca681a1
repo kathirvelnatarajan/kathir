@@ -1,0 +1,22 @@
+package samayyu.assigmnent;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Processor {
+	
+	public static void main(String[] args) {
+		File f = new File("C:\\Users\\kathi\\Desktop\\AAPL.csv");
+		try {
+			Processor.readFile(f);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

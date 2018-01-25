@@ -1,5 +1,0 @@
-package io.kathir.topiccontroller.topic;
-
-public class JdbcTemplate {
-
-}

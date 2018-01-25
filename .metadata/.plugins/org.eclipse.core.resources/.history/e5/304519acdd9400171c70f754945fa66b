@@ -1,9 +1,0 @@
-package io.kathir.topiccontroller;
-
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public class TopicController {
-
-	public String hello
-}

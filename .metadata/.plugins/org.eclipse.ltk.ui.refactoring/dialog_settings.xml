@@ -4,8 +4,14 @@
 		<item value="600" key="width"/>
 		<item value="400" key="height"/>
 	</section>
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+	</section>
 	<section name="InferTypeArguments">
 		<item value="true" key="leaveUnconstrainedRaw"/>
 		<item value="true" key="assumeCloneReturnsSameType"/>
+	</section>
+	<section name="RefactoringWizard.Externalize strings in &apos;ServiceSupportDatabaseManager.java&apos;">
+		<item value="1136" key="width"/>
+		<item value="553" key="height"/>
 	</section>
 </section>

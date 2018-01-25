@@ -3,7 +3,7 @@ package io.kathir.topiccontroller.topic;
 public class MovingAverage {
 	private String stockTicker;
 	private String date;
-	private int average;
+	private double average;
 	public String getStockTicker() {
 		return stockTicker;
 	}
@@ -16,10 +16,10 @@ public class MovingAverage {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public int getAverage() {
+	public double getAverage() {
 		return average;
 	}
-	public void setAverage(int average) {
+	public void setAverage(double average) {
 		this.average = average;
 	}
 

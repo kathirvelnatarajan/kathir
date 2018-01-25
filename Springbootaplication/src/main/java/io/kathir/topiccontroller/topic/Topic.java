@@ -12,10 +12,12 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.websocket.server.PathParam;
@@ -28,6 +30,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+
 
 
 
@@ -107,6 +111,33 @@ public String sayHi() {
 		str +="</table></body></html>";
 				return str;
 	}
+	
+	public List calculate(int noOfDays, String ticker) {
+			List ll= new LinkedList();
+			Map<String, Double> map = new HashMap<String, Double>();
+			List<StockQuote> quotes = dm.fetchStockQuotes(ticker);
+			Collections.sort(quotes);
+			for (int j = noOfDays-1; j < quotes.size(); j++) {
+				double sum = 0;
+				StockQuote sq = (StockQuote) quotes.get(j);
+				List ab = quotes.subList(j-(noOfDays-1), j);
+				for (int i = 0; i < ab.size(); i++) {
+					StockQuote stock = (StockQuote) ab.get(i);
+
+					sum += stock.getPrice();
+				}
+				double average = sum/noOfDays;
+				MovingAverage ma = new MovingAverage();
+			ma.setStockTicker(sq.getTicker());
+			ma.setAverage(average);
+			
+			ma.setDate(sq.getDate());
+				map.put(sq.getDate(), average);
+				ll.add(ma);
+			}
+			return ll;
+		}
+	
 	
 	
 	

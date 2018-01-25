@@ -8,12 +8,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DatabaseManager {
-    private final JdbcTemplate jdbcTemplate;
-
-    @Autowired
-    public DatabaseManager(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+	@Autowired
+    private JdbcTemplate jdbcTemplate ;
     public List<MovingAverage> fetchAverage(String stockTicker){
     	Object[] args = new Object[]{stockTicker};
     	return jdbcTemplate.query("SELECT * from stock_mov_average where stock_ticker = ?",args, new DatabaseMovingAverageProcessor());
